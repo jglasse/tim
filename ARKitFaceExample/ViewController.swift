@@ -115,9 +115,9 @@ class ViewController: UIViewController, ARSessionDelegate {
 
 extension ViewController: UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        guard let contentType = VirtualContentType(rawValue: item.tag)
-            else { fatalError("unexpected virtual content tag") }
-        selectedVirtualContent = contentType
+//        guard let contentType = VirtualContentType(rawValue: 2)
+//            else { fatalError("unexpected virtual content tag") }
+//        selectedVirtualContent = contentType
     }
 }
 
