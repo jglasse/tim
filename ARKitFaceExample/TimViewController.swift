@@ -9,7 +9,7 @@ import ARKit
 import SceneKit
 import UIKit
 
-class ViewController: UIViewController, ARSessionDelegate {
+class TimViewController: UIViewController, ARSessionDelegate {
     
     // MARK: Outlets
 
@@ -58,8 +58,7 @@ class ViewController: UIViewController, ARSessionDelegate {
         sceneView.automaticallyUpdatesLighting = true
         
         // Set the initial face content.
-        tabBar.selectedItem = tabBar.items!.first!
-        selectedVirtualContent = VirtualContentType(rawValue: tabBar.selectedItem!.tag)
+        selectedVirtualContent = VirtualContentType(rawValue: 2)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -113,7 +112,7 @@ class ViewController: UIViewController, ARSessionDelegate {
     }
 }
 
-extension ViewController: UITabBarDelegate {
+extension TimViewController: UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
 //        guard let contentType = VirtualContentType(rawValue: 2)
 //            else { fatalError("unexpected virtual content tag") }
@@ -121,7 +120,7 @@ extension ViewController: UITabBarDelegate {
     }
 }
 
-extension ViewController: ARSCNViewDelegate {
+extension TimViewController: ARSCNViewDelegate {
         
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let faceAnchor = anchor as? ARFaceAnchor else { return }
