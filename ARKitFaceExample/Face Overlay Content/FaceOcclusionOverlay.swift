@@ -31,14 +31,22 @@ class FaceOcclusionOverlay: NSObject, VirtualContentController {
         let faceGeometry = ARSCNFaceGeometry(device: sceneView.device!)!
         faceGeometry.firstMaterial!.colorBufferWriteMask = []
         occlusionNode = SCNNode(geometry: faceGeometry)
-        occlusionNode.renderingOrder = -1
+        occlusionNode.renderingOrder = 1
 
         // Add 3D asset positioned to appear as "glasses".
-        let faceOverlayContent = SCNReferenceNode(named: "overlayModel")
+        
+        let newoverlay = SCNPlane(width: 0.5, height: 0.5)
+        let timTesture = SCNMaterial()
+        timTesture.diffuse.contents = UIImage(named: "BigTim")
+        newoverlay.firstMaterial = timTesture
+        let newOverlayNode = SCNNode(geometry: newoverlay)
+        
+        
+       // let faceOverlayContent = SCNReferenceNode(named: "overlayModel")
 
         contentNode = SCNNode()
         contentNode!.addChildNode(occlusionNode)
-        contentNode!.addChildNode(faceOverlayContent)
+        contentNode!.addChildNode(newOverlayNode)
         #endif
         return contentNode
     }

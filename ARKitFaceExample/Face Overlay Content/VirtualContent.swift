@@ -12,10 +12,12 @@ enum VirtualContentType: Int {
     case transforms, texture, geometry, videoTexture, blendShape
     
     func makeController() -> VirtualContentController {
+        print(self)
         switch self {
         case .transforms:
             return TransformVisualization()
         case .texture:
+
             return TexturedFace()
         case .geometry:
             return FaceOcclusionOverlay()
